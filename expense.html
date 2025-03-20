@@ -3,69 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expenses</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 2px solid black;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .header {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .input-box {
-            margin-bottom: 20px;
-        }
-
-        input {
-            padding: 10px;
-            width: 60%;
-            font-size: 16px;
-            border: 2px solid black;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .display-area {
-            margin-top: 20px;
-            height: 150px;
-            border: 2px solid black;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Expense Report</title>
 </head>
 <body>
-
     <header>
         <div class="nav-left">
             <a href="index.html">Home</a>
@@ -73,32 +14,31 @@
             <a href="expense.html">Expense</a>
             <a href="report.html">Report</a>
         </div>
-
-    
-
-    <div class="container">
-        <div class="header">Enter Category</div>
-        
-        <div class="input-box">
-            <input type="text" id="categoryInput" placeholder="Enter category">
-            <button onclick="displayCategory()">Enter</button>
-        </div>
-
-        <div class="display-area" id="displayArea"></div>
-    </div>
-
-    <script>
-        function displayCategory() {
-            let inputText = document.getElementById("categoryInput").value;
-            let displayBox = document.getElementById("displayArea");
             
-            if (inputText.trim() === "") {
-                displayBox.innerHTML = "<p style='color: red;'>Please enter a category!</p>";
-            } else {
-                displayBox.innerHTML = "<p style='font-size: 18px;'>" + inputText + "</p>";
-            }
-        }
-    </script>
+        <div class="nav-right">
+            <img src="./images/image.png" alt="profile-menu" id="profile-icon">
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="#">Tips</a>
+                    <a href="#">Change Password</a>
+                    <a href="#">Log Out</a>
+                </div>
+        </div>
+    </header>
 
+    <div class="ex-history">
+        <form action="POST">
+            <label for="category">Enter Category:</label>
+            <select name="category" id="category">
+                <option>Select Category</option>
+                <option value="f">Food</option>
+                <option value="t">Transport</option>
+                <option value="s">Shopping</option>
+                <option value="c">Cosmetics</option>
+                <option value="o">Others</option>
+            </select>
+            <button>Enter</button>
+        </form>
+        
 </body>
+<script src="app.js"></script>
 </html>
